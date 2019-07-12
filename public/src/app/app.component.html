@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<div class="jumbotron">
+    <h1 class="display-4">Rate my Cakes</h1>
+</div>
+<div class="new_cake">
+  <p>Submit a cake to be rated</p>
+  <hr>
+  <form (submit)="createCake()">
+    <p>Baker Name: <input type="text" name="newCake.baker" [(ngModel)]="newCake.baker"></p>
+    <p>Image Url: <input type="text" name="newCake.photo" [(ngModel)]="newCake.photo"></p>
+    <input type="submit">
+  </form>
+</div>
+
+<div class="list_cake">
+  <ul>
+    <li *ngFor="let cake of cakes">
+        <a (click)="getCake(cake._id)"><img [src]='cake.photo'></a>
+        <form id="rate" (submit)="createRating(cake._id)">
+          Star Rating: <select name="newRating.rating" [(ngModel)]="newRating.rating">
+            <option>5</option>
+            <option>4</option>
+            <option>3</option>
+            <option>2</option>
+            <option>1</option>
+          </select>
+          <p><input type="text" placeholder="Type your comment here" name="newRating.comment"  [(ngModel)]="newRating.comment"></p>
+          <input type="submit" value="Rate!">
+        </form>
+    </li>
+  </ul>
+  
+</div>
+
+<app-cake *ngIf="cake" [cake]="cake"></app-cake>

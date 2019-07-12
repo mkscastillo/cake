@@ -1,0 +1,30 @@
+.list_cake, .new_cake{
+    padding: 20px;
+    width: 47%;
+    vertical-align: top;
+    display:inline-block;
+}
+
+img{
+    width: 200px;
+    display: inline-block;
+}
+
+#rate{
+    display: inline-block;
+}
+
+.list_cake{
+    height: 400px;
+    overflow: scroll;
+}
+
+
+.list_cake ul li{
+    margin: 10px;
+    display: inline-block;
+}
+
+.jumbotron{
+    background-color: #c16ac1;
+}
